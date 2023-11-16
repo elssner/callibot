@@ -1,0 +1,26 @@
+calliBot2.motor(C2Motor.beide, C2Dir.vorwaerts, 100)
+basic.pause(1000)
+calliBot2.motor(C2Motor.links, C2Dir.rueckwaerts, 50)
+calliBot2.motor(C2Motor.rechts, C2Dir.vorwaerts, 50)
+basic.pause(1000)
+calliBot2.motorStop(C2Motor.beide, C2Stop.Bremsen)
+basic.forever(function () {
+    calliBot2.setRgbLed1(C2RgbLed.LV, 0x00ffdc, 8)
+    calliBot2.setRgbLed1(C2RgbLed.LV, 0x00ffdc, 0)
+    basic.pause(500)
+    calliBot2.setRgbLed1(C2RgbLed.RV, 0x0000ff, 8)
+    calliBot2.setRgbLed1(C2RgbLed.RV, 0x0000ff, 0)
+    basic.pause(500)
+    calliBot2.setRgbLed1(C2RgbLed.LH, 0xa300ff, 8)
+    calliBot2.setRgbLed1(C2RgbLed.LH, 0xa300ff, 0)
+    basic.pause(500)
+    calliBot2.setRgbLed1(C2RgbLed.RH, 0xff0000, 8)
+    calliBot2.setRgbLed1(C2RgbLed.RH, 0xff0000, 0)
+    basic.pause(500)
+    if (input.soundLevel() < 700) {
+        calliBot2.motor(C2Motor.beide, C2Dir.vorwaerts, 100)
+    } else {
+        calliBot2.motorStop(C2Motor.beide, C2Stop.Bremsen)
+        basic.pause(3000)
+    }
+})
